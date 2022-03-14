@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mangadex_mobile/screens/LoginScreen.dart';
+import 'package:mangadex_mobile/screens/home_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,9 +11,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MangaDex',
       theme: ThemeData(
-        primaryColor: Colors.orange,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color(0xfff26d5b),
+          secondary: const Color(0xff5d5d5a),
+          tertiary: const Color(0xfff5f5f5),
+        ),
       ),
-      home: const LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 }
