@@ -2,7 +2,6 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:mangadex_mobile/routing/application.dart';
 import 'package:mangadex_mobile/routing/routes.dart';
-import 'package:mangadex_mobile/screens/home_screen.dart';
 
 void main() => runApp(MangaDexApp());
 
@@ -24,7 +23,8 @@ class MangaDexApp extends StatelessWidget {
           tertiary: const Color(0xfff5f5f5),
         ),
       ),
-      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Application.router.generator,
     );
   }
 }

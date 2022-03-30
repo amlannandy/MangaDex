@@ -2,14 +2,14 @@ import 'package:fluro/fluro.dart';
 import 'package:mangadex_mobile/routing/route_handler.dart';
 
 class Routes {
-  static const home = "/";
+  static const init = "/";
 
   // Auth
   static const login = "/login";
   static const register = "/register";
 
   static void configureRouter(FluroRouter router) {
-    router.define(home, handler: homeHandler);
+    router.define(init, handler: initHandler);
 
     // Auth
     router.define(

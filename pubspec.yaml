@@ -13,7 +13,9 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   dio: ^4.0.5
+  dot_navigation_bar: ^1.0.1+4
   fluro: ^2.0.3
+  line_icons: ^2.0.1
 
 dev_dependencies:
   flutter_test:
