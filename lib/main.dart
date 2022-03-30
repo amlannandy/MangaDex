@@ -1,10 +1,17 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:mangadex_mobile/routing/application.dart';
+import 'package:mangadex_mobile/routing/routes.dart';
 import 'package:mangadex_mobile/screens/home_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MangaDexApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MangaDexApp extends StatelessWidget {
+  MangaDexApp({Key? key}) : super(key: key) {
+    final router = FluroRouter();
+    Routes.configureRouter(router);
+    Application.router = router;
+  }
 
   @override
   Widget build(BuildContext context) {
