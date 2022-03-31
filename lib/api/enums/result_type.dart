@@ -1,0 +1,4 @@
+enum EResultType {
+  error,
+  success,
+}
