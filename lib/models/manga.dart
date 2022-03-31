@@ -5,13 +5,13 @@ class Manga {
   String title;
   List<String> altTitles;
   String description;
-  int year;
+  int? year;
   String contentRating;
   String status;
   String state;
   String originalLanguage;
-  String lastVolume;
-  String lastChapter;
+  String? lastVolume;
+  String? lastChapter;
   String publicationDemographic;
   List<String> tags;
   Map<String, String> links;
@@ -39,9 +39,11 @@ class Manga {
     Manga manga = Manga(
       id: json['id'],
       title: json['attributes']['title']['en'],
-      altTitles: json['attributes']['altTitles']
-          .map((title) => title.values.toList()[0].toString())
-          .toList(),
+      altTitles: List<String>.from(
+        json['attributes']['altTitles']
+            .map((title) => title.values.toList()[0].toString())
+            .toList(),
+      ),
       description: json['attributes']['description']['en'],
       year: json['attributes']['year'],
       contentRating: json['attributes']['contentRating'],
@@ -51,18 +53,22 @@ class Manga {
       lastVolume: json['attributes']['lastVolume'],
       lastChapter: json['attributes']['lastChapter'],
       publicationDemographic: json['attributes']['publicationDemographic'],
-      tags: json['attributes']['tags']
-          .map((tag) => tag['attributes']['name']['en'])
-          .toList(),
-      links: json['attributes']['links'],
-      relationships: json['relationships']
-          .map(
-            (relationship) => Relationship(
-              relationship['id'],
-              relationship['type'],
-            ),
-          )
-          .toList(),
+      tags: List<String>.from(
+        json['attributes']['tags']
+            .map((tag) => tag['attributes']['name']['en'].toString())
+            .toList(),
+      ),
+      links: Map<String, String>.from(json['attributes']['links']),
+      relationships: List<Relationship>.from(
+        json['relationships']
+            .map(
+              (relationship) => Relationship(
+                relationship['id'],
+                relationship['type'],
+              ),
+            )
+            .toList(),
+      ),
     );
     return manga;
   }

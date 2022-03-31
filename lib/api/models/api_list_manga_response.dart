@@ -8,10 +8,12 @@ class ApiListMangaResponse extends ApiBaseSuccessResponse {
   late int total;
 
   ApiListMangaResponse(Map<String, dynamic> json) : super(json) {
-    List<Map<String, dynamic>> mangaData = json['data'];
-    data = mangaData.map((manga) => Manga.fromJSON(manga)).toList();
+    final mangaData = json['data'];
+    data = List<Manga>.from(
+      mangaData.map((manga) => Manga.fromJSON(manga)).toList(),
+    );
     limit = json['limit'];
-    offest = json['offest'];
+    offest = json['offset'];
     total = json['total'];
   }
 }

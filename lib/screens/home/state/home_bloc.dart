@@ -7,9 +7,13 @@ class HomeBloc {
   final Repository _repository = Repository();
 
   final StreamController<HomeState> _homeController =
-      StreamController<HomeState>();
+      StreamController<HomeState>.broadcast();
 
   Stream<HomeState> get homeState => _homeController.stream;
+
+  HomeBloc() {
+    _getMangaList();
+  }
 
   void refresh() {
     _getMangaList();
