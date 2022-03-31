@@ -15,6 +15,10 @@ class HomeBloc {
     _getMangaList();
   }
 
+  void dispose() {
+    _homeController.close();
+  }
+
   void _getMangaList() async {
     try {
       _homeController.add(HomeState.loading());
