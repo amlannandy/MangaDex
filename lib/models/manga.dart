@@ -1,3 +1,4 @@
+import 'package:mangadex_mobile/config.dart';
 import 'package:mangadex_mobile/models/relationship.dart';
 
 class Manga {
@@ -16,6 +17,8 @@ class Manga {
   List<String> tags;
   Map<String, String> links;
   List<Relationship> relationships;
+  String? thumbnail;
+  String? imageUrl;
 
   Manga({
     required this.id,
@@ -71,5 +74,10 @@ class Manga {
       ),
     );
     return manga;
+  }
+
+  void setCover(String fileName) {
+    thumbnail = "$COVERS_STORAGE_URL/$id/$fileName.512.jpg";
+    imageUrl = "$COVERS_STORAGE_URL/$id/$fileName.256.jpg";
   }
 }

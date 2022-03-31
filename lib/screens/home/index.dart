@@ -26,8 +26,19 @@ class HomeScreen extends StatelessWidget {
           );
         }
         final manga = state.manga!;
-        return ListView.builder(
-          itemBuilder: (ctx, index) => Text(manga[index].title),
+        return GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 1,
+            crossAxisCount: 2,
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5,
+          ),
+          itemBuilder: (ctx, index) => Image.network(
+            manga[index].thumbnail!,
+            height: 50,
+            width: 50,
+            fit: BoxFit.cover,
+          ),
           itemCount: manga.length,
         );
       },

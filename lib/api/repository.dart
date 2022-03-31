@@ -15,6 +15,30 @@ class Repository {
     if (response.result == EResultType.error) {
       return Future.error(response.errors![0].title);
     }
-    return response.data;
+    List<Manga> manga = response.data;
+    for (int i = 0; i < manga.length; i++) {
+      final coverId = manga[i]
+          .relationships
+          .firstWhere((rel) => rel.type == "cover_art")
+          .id;
+      String? coverFileName = await getCoverFileName(coverId);
+      if (coverFileName == null) {
+        continue;
+      }
+      manga[i].setCover(coverFileName);
+    }
+    return manga;
+  }
+
+  Future<String?> getCoverFileName(String coverId) async {
+    try {
+      final response = await _api.getCover(coverId);
+      if (response.result == EResultType.error) {
+        return null;
+      }
+      return response.data['attributes']['fileName'];
+    } catch (e) {
+      return null;
+    }
   }
 }

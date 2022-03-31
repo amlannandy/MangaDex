@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mangadex_mobile/api/endpoints.dart';
 import 'package:mangadex_mobile/api/mangadex_api.dart';
+import 'package:mangadex_mobile/api/models/api_general_response.dart';
 import 'package:mangadex_mobile/api/models/api_list_manga_response.dart';
 import 'package:mangadex_mobile/config.dart';
 
@@ -18,5 +19,13 @@ class MangadexApiImpl implements MangadexApi {
     final data = response.data;
     ApiListMangaResponse listMangaResponse = ApiListMangaResponse(data);
     return listMangaResponse;
+  }
+
+  @override
+  Future<ApiGeneralResponse> getCover(String coverId) async {
+    final response = await _dio.get("${ApiEndpoints.GET_COVER}/$coverId");
+    final data = response.data;
+    ApiGeneralResponse apiGeneralResponse = ApiGeneralResponse(data);
+    return apiGeneralResponse;
   }
 }

@@ -1,7 +1,7 @@
-import 'package:mangadex_mobile/api/models/api_base_success_response.dart';
+import 'package:mangadex_mobile/api/models/api_base_response.dart';
 import 'package:mangadex_mobile/models/manga.dart';
 
-class ApiListMangaResponse extends ApiBaseSuccessResponse {
+class ApiListMangaResponse extends ApiBaseResponse {
   late List<Manga> data;
   late int limit;
   late int offest;

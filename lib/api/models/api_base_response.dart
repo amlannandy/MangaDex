@@ -1,12 +1,12 @@
 import 'package:mangadex_mobile/api/enums/result_type.dart';
 import 'package:mangadex_mobile/api/models/api_error.dart';
 
-class ApiBaseSuccessResponse {
+class ApiBaseResponse {
   late EResultType result;
   String? response;
   List<ApiError>? errors;
 
-  ApiBaseSuccessResponse(Map<String, dynamic> json) {
+  ApiBaseResponse(Map<String, dynamic> json) {
     result = getResultType(json['result']);
     if (result == EResultType.error) {
       errors = json['errors']
