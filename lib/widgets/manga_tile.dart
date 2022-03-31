@@ -9,7 +9,7 @@ class MangaTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Stack(
         alignment: Alignment.bottomCenter,
