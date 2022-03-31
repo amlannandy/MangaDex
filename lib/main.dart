@@ -22,6 +22,7 @@ class MangaDexApp extends StatelessWidget {
           secondary: const Color(0xff5d5d5a),
           tertiary: const Color(0xfff5f5f5),
         ),
+        fontFamily: 'Lato',
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router.generator,

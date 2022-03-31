@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mangadex_mobile/screens/home/state/home_bloc.dart';
 import 'package:mangadex_mobile/screens/home/state/home_state.dart';
+import 'package:mangadex_mobile/widgets/manga_tile.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,17 +29,12 @@ class HomeScreen extends StatelessWidget {
         final manga = state.manga!;
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 1,
+            childAspectRatio: 0.7,
             crossAxisCount: 2,
             mainAxisSpacing: 5,
             crossAxisSpacing: 5,
           ),
-          itemBuilder: (ctx, index) => Image.network(
-            manga[index].thumbnail!,
-            height: 50,
-            width: 50,
-            fit: BoxFit.cover,
-          ),
+          itemBuilder: (ctx, index) => MangaTile(manga[index]),
           itemCount: manga.length,
         );
       },
