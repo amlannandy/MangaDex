@@ -1,16 +1,35 @@
-# mangadex_mobile
+# MangaDex
 
-A new Flutter project.
+This is a mobile-based Manga Reader Application built off the [MangaDex API](https://api.mangadex.org/docs/) which provides the following functionalities -
 
-## Getting Started
+- Explore and various manga available in the MangaDex database
+- Search for manga based on name, author, publication date and other parameters
+- Login/Register with MangaDex account to bookmark manga and track your reading status
 
-This project is a starting point for a Flutter application.
+## Local Development Setup
 
-A few resources to get you started if this is your first Flutter project:
+Install project dependencies
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```
+flutter pub get
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Run the app
+
+```
+flutter run
+```
+
+## Building the App
+
+To build the app for Android
+
+```
+flutter build apk
+```
+
+For iOS
+
+```
+flutter build ios
+```
