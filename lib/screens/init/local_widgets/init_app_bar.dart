@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 PreferredSizeWidget initAppBar() {
   return AppBar(
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.transparent,
     elevation: 0,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
