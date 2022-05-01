@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mangadex_mobile/screens/home/state/home_bloc.dart';
 import 'package:mangadex_mobile/screens/init/index.dart';
 import 'package:mangadex_mobile/screens/login/index.dart';
+import 'package:mangadex_mobile/screens/register/index.dart';
 import 'package:provider/provider.dart';
 
 var initHandler = Handler(
@@ -21,4 +22,9 @@ var initHandler = Handler(
 var loginHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return const LoginScreen();
+});
+
+var registerHandler = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return const RegisterScreen();
 });

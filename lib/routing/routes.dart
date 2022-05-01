@@ -17,5 +17,10 @@ class Routes {
       handler: loginHandler,
       transitionType: TransitionType.native,
     );
+    router.define(
+      register,
+      handler: registerHandler,
+      transitionType: TransitionType.native,
+    );
   }
 }
