@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:line_icons/line_icons.dart';
+
 import 'package:mangadex_mobile/routing/application.dart';
 import 'package:mangadex_mobile/widgets/icon_button.dart';
 

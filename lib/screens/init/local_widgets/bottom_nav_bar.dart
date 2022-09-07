@@ -1,5 +1,6 @@
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
+
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
 class BottomNavBar extends StatelessWidget {

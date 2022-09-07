@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:mangadex_mobile/screens/home/index.dart';
 import 'package:mangadex_mobile/screens/init/local_widgets/bottom_nav_bar.dart';
 import 'package:mangadex_mobile/screens/init/local_widgets/init_app_bar.dart';

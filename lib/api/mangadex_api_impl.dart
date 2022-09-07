@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+
 import 'package:mangadex_mobile/api/endpoints.dart';
 import 'package:mangadex_mobile/api/mangadex_api.dart';
 import 'package:mangadex_mobile/api/models/api_general_response.dart';

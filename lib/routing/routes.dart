@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+
 import 'package:mangadex_mobile/routing/route_handler.dart';
 
 class Routes {

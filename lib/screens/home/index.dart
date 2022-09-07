@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
+
 import 'package:mangadex_mobile/screens/home/state/home_bloc.dart';
 import 'package:mangadex_mobile/screens/home/state/home_state.dart';
 import 'package:mangadex_mobile/widgets/manga_tile.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             child: Text(state.error!),
           );
         }
-        final manga = state.manga!;
+        final mangas = state.mangas!;
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 0.7,
@@ -34,8 +36,8 @@ class HomeScreen extends StatelessWidget {
             mainAxisSpacing: 5,
             crossAxisSpacing: 5,
           ),
-          itemBuilder: (ctx, index) => MangaTile(manga[index]),
-          itemCount: manga.length,
+          itemBuilder: (ctx, index) => MangaTile(mangas[index]),
+          itemCount: mangas.length,
         );
       },
     );
