@@ -22,13 +22,17 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(
-        minHeight: 40,
-        minWidth: 150,
-        maxWidth: 300,
-      ),
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: ElevatedButton.icon(
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size(size.width * 0.8, 50),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+        ),
         label: Text(
           text,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
