@@ -1,18 +1,16 @@
+import 'package:mangadex_mobile/api/enums/result_type.dart';
 import 'package:mangadex_mobile/api/models/api_base_response.dart';
+import 'package:mangadex_mobile/models/token.dart';
 
 class ApiLoginResponse extends ApiBaseResponse {
-  late TokenData token;
+  late Token token;
 
   ApiLoginResponse(Map<String, dynamic> json) : super(json) {
-    final tokenData = json['token'];
-    final token = TokenData(tokenData.session, tokenData.refresh);
-    this.token = token;
+    result = getResultType(json['result']);
+    if (result == EResultType.success) {
+      final tokenData = json['token'];
+      final token = Token.fromJSON(tokenData);
+      this.token = token;
+    }
   }
-}
-
-class TokenData {
-  String session;
-  String refresh;
-
-  TokenData(this.session, this.refresh);
 }

@@ -11,6 +11,7 @@ class CustomIconButton extends StatelessWidget {
   final IconData icon;
   final EButtonType type;
   final VoidCallback? onPressed;
+  final bool isDisabled;
 
   const CustomIconButton({
     Key? key,
@@ -18,6 +19,7 @@ class CustomIconButton extends StatelessWidget {
     required this.icon,
     this.type = EButtonType.primary,
     this.onPressed,
+    this.isDisabled = false,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class CustomIconButton extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         icon: Icon(icon),
-        onPressed: onPressed,
+        onPressed: isDisabled ? null : onPressed,
       ),
     );
   }

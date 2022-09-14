@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:line_icons/line_icons.dart';
-
 enum ESnackBarType { error, success, info, warning }
 
 Color _getBackgroundColor(ESnackBarType type) {
@@ -55,12 +53,14 @@ void showSnackbar(BuildContext context, String text, ESnackBarType type) {
           color: _getIconOrTextColor(type),
         ),
         const SizedBox(width: 10),
-        Text(
-          text,
-          style: TextStyle(
-            color: _getIconOrTextColor(type),
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+        Flexible(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: _getIconOrTextColor(type),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],

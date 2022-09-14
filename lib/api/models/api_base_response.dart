@@ -9,9 +9,8 @@ class ApiBaseResponse {
   ApiBaseResponse(Map<String, dynamic> json) {
     result = getResultType(json['result']);
     if (result == EResultType.error) {
-      errors = json['errors']
-          .map((errorJson) => ApiError.fromJSON(errorJson))
-          .toList();
+      errors = List<ApiError>.from(
+          json['errors'].map((errorJson) => ApiError.fromJSON(errorJson)));
     }
   }
 

@@ -1,6 +1,7 @@
 import 'package:mangadex_mobile/api/enums/result_type.dart';
 import 'package:mangadex_mobile/api/mangadex_api.dart';
 import 'package:mangadex_mobile/api/mangadex_api_impl.dart';
+import 'package:mangadex_mobile/api/models/api_login_response.dart';
 import 'package:mangadex_mobile/models/manga.dart';
 
 class Repository {
@@ -8,6 +9,16 @@ class Repository {
 
   Repository() {
     _api = MangadexApiImpl();
+  }
+
+  // Auth
+  Future<ApiLoginResponse> login(
+      String? email, String? username, String password) async {
+    final response = await _api.login(email, username, password);
+    if (response.result == EResultType.error) {
+      return Future.error(response.errors![0].detail);
+    }
+    return response;
   }
 
   Future<List<Manga>> getMangaList() async {

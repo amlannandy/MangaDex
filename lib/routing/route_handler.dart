@@ -23,7 +23,7 @@ var initHandler = Handler(
 
 var loginHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-  return LoginScreen();
+  return const LoginScreen();
 });
 
 var registerHandler = Handler(

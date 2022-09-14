@@ -24,8 +24,13 @@ class MangadexApiImpl implements MangadexApi {
     } else if (username != null) {
       request['username'] = username;
     }
-    final response = await _dio.post(ApiEndpoints.LOGIN, data: request);
-    final data = response.data;
+    Map<String, dynamic> data;
+    try {
+      final response = await _dio.post(ApiEndpoints.LOGIN, data: request);
+      data = response.data;
+    } on DioError catch (e) {
+      data = e.response?.data;
+    }
     ApiLoginResponse loginResponse = ApiLoginResponse(data);
     return loginResponse;
   }
