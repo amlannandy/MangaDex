@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:mangadex_mobile/screens/home/state/home_bloc.dart';
 import 'package:mangadex_mobile/screens/home/state/home_state.dart';
+import 'package:mangadex_mobile/widgets/error_state.dart';
 import 'package:mangadex_mobile/widgets/manga_tile.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,8 +25,9 @@ class HomeScreen extends StatelessWidget {
           return const Center(child: Text("Loading"));
         }
         if (state.error != null) {
-          return Center(
-            child: Text(state.error!),
+          return const ErrorState(
+            title: 'Oops!',
+            description: 'Something went wrong while loading Manga for you',
           );
         }
         final mangas = state.mangas!;
