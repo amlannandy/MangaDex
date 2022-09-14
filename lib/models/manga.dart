@@ -5,15 +5,15 @@ class Manga {
   String id;
   String title;
   List<String> altTitles;
-  String description;
-  int? year;
+  String? description;
+  String? year;
   String contentRating;
   String status;
   String state;
   String originalLanguage;
   String? lastVolume;
   String? lastChapter;
-  String publicationDemographic;
+  String? publicationDemographic;
   List<String> tags;
   Map<String, String> links;
   List<Relationship> relationships;
@@ -47,8 +47,8 @@ class Manga {
             .map((title) => title.values.toList()[0].toString())
             .toList(),
       ),
-      description: json['attributes']['description']['en'],
-      year: json['attributes']['year'],
+      description: getAttributeMap(json['attributes']['description'])['en'],
+      year: json['attributes']['year'].toString(),
       contentRating: json['attributes']['contentRating'],
       status: json['attributes']['status'],
       state: json['attributes']['state'],
@@ -61,7 +61,8 @@ class Manga {
             .map((tag) => tag['attributes']['name']['en'].toString())
             .toList(),
       ),
-      links: Map<String, String>.from(json['attributes']['links']),
+      links: Map<String, String>.from(
+          getAttributeMap(json['attributes']['links'])),
       relationships: List<Relationship>.from(
         json['relationships']
             .map(
@@ -79,5 +80,12 @@ class Manga {
   void setCover(String fileName) {
     thumbnail = "$COVERS_STORAGE_URL/$id/$fileName.512.jpg";
     imageUrl = "$COVERS_STORAGE_URL/$id/$fileName.256.jpg";
+  }
+
+  static Map getAttributeMap(dynamic json) {
+    if (json is List) {
+      return {};
+    }
+    return json;
   }
 }
