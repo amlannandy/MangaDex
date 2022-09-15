@@ -8,6 +8,13 @@ This is a mobile-based Manga Reader Application built off the [MangaDex API](htt
 
 ## Local Development Setup
 
+Create a `config.dart` file inside `lib` directory and add the following values -
+
+```
+const BASE_API_URL = "https://api.mangadex.org";
+const COVERS_STORAGE_URL = "https://uploads.mangadex.org/covers";
+```
+
 Install project dependencies
 
 ```
