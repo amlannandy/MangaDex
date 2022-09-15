@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:mangadex_mobile/screens/home/state/home_bloc.dart';
 import 'package:mangadex_mobile/screens/home/state/home_state.dart';
 import 'package:mangadex_mobile/widgets/error_state.dart';
+import 'package:mangadex_mobile/widgets/loading_spinner.dart';
 import 'package:mangadex_mobile/widgets/manga_tile.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,11 +19,11 @@ class HomeScreen extends StatelessWidget {
       builder: (ctx, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting ||
             snapshot.data == null) {
-          return const Center(child: Text("Loading"));
+          return const CustomLoadingSpinner();
         }
         final state = snapshot.data!;
         if (state.isLoading) {
-          return const Center(child: Text("Loading"));
+          return const CustomLoadingSpinner();
         }
         if (state.error != null) {
           return const ErrorState(
