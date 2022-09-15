@@ -40,3 +40,10 @@ For iOS
 ```
 flutter build ios
 ```
+
+## Screenshots
+
+<div style="flex-direction: row;">
+  <img src="https://user-images.githubusercontent.com/45410599/190308659-207afb16-18b5-41f3-9392-667665903833.png" width="200px" style="margin-right: 10px;" alt="">
+  <img src="https://user-images.githubusercontent.com/45410599/190308674-01c842b7-ae23-458b-9dfc-47452130dd5a.png" width="200px" alt="">
+</div>
