@@ -38,15 +38,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);
           },
-          onPageFinished: (String url) {
-            if (url != REGISTER_URL) {
+          navigationDelegate: (NavigationRequest request) {
+            if (request.url != REGISTER_URL) {
               Application.router.navigateTo(context, '/login', replace: true);
               showSnackbar(
                 context,
                 'Account created successfully! Please login',
                 ESnackBarType.success,
               );
+              return NavigationDecision.prevent;
             }
+            return NavigationDecision.prevent;
           },
         ),
       ),
