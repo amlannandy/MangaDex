@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
+import 'package:provider/provider.dart';
 
 import 'package:mangadex_mobile/routing/application.dart';
 import 'package:mangadex_mobile/routing/routes.dart';
+import 'package:mangadex_mobile/screens/init/state/auth_state.dart';
 
 void main() => runApp(MangaDexApp());
 
@@ -16,18 +18,21 @@ class MangaDexApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'MangaDex',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color(0xfff26d5b),
-          secondary: const Color(0xff5d5d5a),
-          tertiary: const Color(0xfff5f5f5),
+    return ChangeNotifierProvider<AuthState>(
+      create: (BuildContext context) => AuthState(),
+      child: MaterialApp(
+        title: 'MangaDex',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: const Color(0xfff26d5b),
+            secondary: const Color(0xff5d5d5a),
+            tertiary: const Color(0xfff5f5f5),
+          ),
+          fontFamily: 'Lato',
         ),
-        fontFamily: 'Lato',
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: Application.router.generator,
       ),
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: Application.router.generator,
     );
   }
 }
